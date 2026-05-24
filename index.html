@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <title>CampZone</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/style0.css">
+     <script src="./js/script0.js" defer></script>
+      <script src="./js/script1.js" defer></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <img src="./assets/logo2.png" alt="Logo">
+        <a class="navlink" href="index.html">Trang chủ</a>
+        <a class="navlink" href="./html/san-pham.html">Balo & trang thiết bị</a>
+        <a class="navlink" href="./html/page2.html">Đồ ăn & uống</a>
+        <a class="navlink" href="./html/page3.html">Đăng nhập</a>
+        <a class="navlink" href="./html/page4.html">Đăng ký</a>
+    </nav>
+
+    <main class="main">
+
+        <!-- BANNER -->
+        <section class="banner">
+            <div class="banner-track">
+
+                <div class="banner-slide active">
+                    <video autoplay muted loop playsinline>
+                        <source src="./assets/banner1.mp4" type="video/mp4">
+                    </video>
+                    <div class="banner-caption">
+                        <h2>Khám phá thiên nhiên</h2>
+                        <p>Trải nghiệm cắm trại tuyệt vời cùng CampZone</p>
+                    </div>
+                </div>
+
+                <div class="banner-slide">
+                    <video autoplay muted loop playsinline>
+                        <source src="./assets/banner1.mp4" type="video/mp4">
+                    </video>
+                    <div class="banner-caption">
+                        <h2>Trang bị chuyên nghiệp</h2>
+                        <p>Đầy đủ dụng cụ cho mọi chuyến đi</p>
+                    </div>
+                </div>
+
+                <div class="banner-slide">
+                    <video autoplay muted loop playsinline>
+                        <source src="./assets/banner1.mp4" type="video/mp4">
+                    </video>
+                    <div class="banner-caption">
+                        <h2>Cùng nhau trải nghiệm</h2>
+                        <p>Kết nối cộng đồng yêu thích cắm trại</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="banner-btn prev" aria-label="Trước">&#8592;</button>
+            <button class="banner-btn next" aria-label="Sau">&#8594;</button>
+
+            <div class="banner-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </section>
+        
+
+         <!-- phân loại -->
+        <div class="info-bar">
+            <div class="info-bar-item">
+                <i class="fa-solid fa-truck"></i>
+                <span>Miễn phí vận chuyển nội địa</span>
+            </div>
+            <div class="info-bar-item">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>Thanh toán an toàn</span>
+            </div>
+            <div class="info-bar-item">
+                <i class="fa-solid fa-thumbs-up"></i>
+                <span>Dịch vụ tuyệt vời</span>
+            </div>
+            <div class="info-bar-item">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Bảo hành 2 năm</span>
+            </div>
+        </div>
+        <h2 style="text-align: center; padding-bottom: 0.6rem;">
+                ĐỒ DÙNG CHO NHỮNG CHUYẾN PHIÊU LƯU NGOÀI TRỜI CỦA BẠN
+            </h2>
+            <div style="width: 60px; height: 3px; background: #333; margin: 0 auto 1.5rem;"></div>
+<!-- Category -->
+<section class="category-section">
+    <div class="category-grid" id="category-list"></div>
+</section>
+
+        <!-- ===== SẢN PHẨM ===== -->
+        <div class="main-placeholder">
+            
+            <div id="product-list" class="product-list"></div>
+        </div>
+
+        <!--  HOẠT ĐỘNG  -->
+        <section class="activities">
+            <h2 style="text-align: center; padding-bottom: 0.6rem;">
+                NIỀM VUI DÂNG TRÀO KHI HÒA MÌNH VÀO THIÊN NHIÊN
+            </h2>
+            <div style="width: 60px; height: 3px; background: #333; margin: 0 auto 1.5rem;"></div>
+
+            <div class="activity-grid">
+
+                <div class="activity-card">
+                    <img src="./assets/yoga.png" alt="Outdoor Yoga">
+                    <div class="activity-overlay"></div>
+                    <div class="activity-body">
+                        <span class="activity-tag">01 / Unwind</span>
+                        <h3 class="activity-title">Outdoor<br>Yoga</h3>
+                        <p class="activity-desc">Trải nghiệm yoga giữa thiên nhiên, thư giãn cơ thể và tâm trí cùng CampZone</p>
+                        <button class="activity-btn">Khám Phá</button>
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <img src="./assets/docsach.png" alt="Book Club">
+                    <div class="activity-overlay"></div>
+                    <div class="activity-body">
+                        <span class="activity-tag">02 / Trevari</span>
+                        <h3 class="activity-title">Book<br>Club</h3>
+                        <p class="activity-desc">Đọc sách và chia sẻ cùng cộng đồng giữa không gian xanh mát của núi rừng</p>
+                        <button class="activity-btn">Khám Phá</button>
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <img src="./assets/nhac.png" alt="Tea & Sound Ritual">
+                    <div class="activity-overlay"></div>
+                    <div class="activity-body">
+                        <span class="activity-tag">03 / Dambi</span>
+                        <h3 class="activity-title">Tea &<br>Sound Ritual</h3>
+                        <p class="activity-desc">Kết hợp trà đạo và âm thanh thiền định, đánh thức các giác quan giữa tự nhiên</p>
+                        <button class="activity-btn">Khám Phá</button>
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <img src="./assets/chaybo.png" alt="Trail Running">
+                    <div class="activity-overlay"></div>
+                    <div class="activity-body">
+                        <span class="activity-tag">04 / Tangbadasan</span>
+                        <h3 class="activity-title">Trail<br>Running</h3>
+                        <p class="activity-desc">Chạy bộ địa hình cùng cộng đồng outdoor, chinh phục những cung đường rừng núi</p>
+                        <button class="activity-btn">Khám Phá</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+       
+
+    </main>
+
+    <footer class="footer-lienhe">
+        <div class="footer-title">Liên hệ với tôi</div>
+        <ul class="icon-row">
+            <li style="--clr0:#ff0050;">
+                <div class="icon-wrap">
+                    <a class="Lienhe" href="https://www.instagram.com/tlam2_2?igsh=bXBlenNvM292Zm11" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <span class="icon-label">Instagram</span>
+                </div>
+            </li>
+            <li style="--clr0:#1877f2;">
+                <div class="icon-wrap">
+                    <a class="Lienhe" href="https://www.facebook.com/share/18mriTccBo/" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <span class="icon-label">Facebook</span>
+                </div>
+            </li>
+            <li style="--clr0:#ff0000;">
+                <div class="icon-wrap">
+                    <a class="Lienhe" href="https://www.youtube.com/@Iris102-vn" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                    <span class="icon-label">YouTube</span>
+                </div>
+            </li>
+            <li style="--clr0:#010101;">
+                <div class="icon-wrap">
+                    <a class="Lienhe" href="https://www.tiktok.com/@tlamm87?_r=1&_t=ZS-96axMhUuiZh" aria-label="TikTok">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                    <span class="icon-label">TikTok</span>
+                </div>
+            </li>
+        </ul>
+        <p class="footer-copy">@2026 CampZone và logo CampZone là thương hiệu của TLam</p>
+    </footer>
+
+</body>
+</html>
