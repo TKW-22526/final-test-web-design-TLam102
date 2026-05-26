@@ -1,11 +1,11 @@
 // CATEGORY DATABASE
 const categoryDatabase = [
-    { id: 1, name: "Lều siêu nhẹ",            img: "./assets/lieupl.png",    link: "#" },
-    { id: 2, name: "Lều cắm trại sang trọng", img: "./assets/traipl.png",   link: "#" },
-    { id: 3, name: "Đồ dùng ngủ",             img: "./assets/tuingupl.png", link: "#" },
-    { id: 4, name: "Đồ nội thất đường mòn",   img: "./assets/ghepl.png",    link: "#" },
-    { id: 5, name: "Bếp ngoài trời",          img: "./assets/beppl.png",    link: "#" },
-    { id: 6, name: "Đồ dùng leo núi",         img: "./assets/balopl.png",   link: "#" },
+    { id: 1, name: "Lều siêu nhẹ",            img: "./assets/lieupl.png",    link: "./html/san-phamleu.html" },
+    { id: 2, name: "Lều cắm trại sang trọng", img: "./assets/traipl.png",   link: "./html/san-phamleu.html" },
+    { id: 3, name: "Đồ dùng ngủ",             img: "./assets/tuingupl.png", link: "./html/san-phamleu.html" },
+    { id: 4, name: "Đồ nội thất đường mòn",   img: "./assets/ghepl.png",    link: "./html/san-phamleu.html" },
+    { id: 5, name: "Bếp ngoài trời",          img: "./assets/beppl.png",    link:"./html/san-phamleu.html" },
+    { id: 6, name: "Đồ dùng leo núi",         img: "./assets/balopl.png",   link: "./html/san-phamleu.html" },
 ];
 
 // ========== RENDER DANH MỤC ==========

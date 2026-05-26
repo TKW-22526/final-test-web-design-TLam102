@@ -60,7 +60,7 @@ body {
 .navlink:hover::before { left: 100%; }
 
 .navlink:hover {
-    color: white;
+    color: rgb(43, 43, 43);
     background: rgba(255, 255, 255, 0.25);
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
@@ -70,7 +70,7 @@ body {
 .main {
     flex: 1;
     display: flex;
-    flex-direction: column;   /* FIX: xếp dọc thay vì ngang */
+    flex-direction: column;
     width: 100%;
 }
 
@@ -199,15 +199,14 @@ body {
 
 /*  ACTIVITY CARDS  */
 .activities {
-  
-    padding: 1.5rem 1.5rem;   
+    padding: 1.5rem 1.5rem;
     width: 100%;
-     box-sizing: border-box;   
-    overflow: hidden; 
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .activity-grid {
-     display: grid;
+    display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
     max-width: 1400px;
@@ -218,7 +217,7 @@ body {
     position: relative;
     border-radius: 16px;
     overflow: hidden;
-    height: 360px;            
+    height: 360px;
     cursor: pointer;
     background: #1a1a1a;
     transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
@@ -384,7 +383,7 @@ footer {
     text-transform: uppercase;
 }
 
-/*  RESPONSIVE*/
+/*  RESPONSIVE */
 @media (max-width: 900px) {
     .activity-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -407,51 +406,86 @@ footer {
 }
 
 .row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 cột */
-  gap: 20px;
-  padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
 }
 
-.product-item {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-  text-align: center;
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
-  max-width: 280px;    
-    margin: 0 auto;     
-}
-
-.product-image img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover; 
-    height: 250px;  
-
-}
-
-.product-info {
-  padding: 10px;
-}
-
-.product-info a {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 6px 14px;
-  background: #4CAF50;
-  color: white;
-  border-radius: 4px;
-  text-decoration: none;
-}
+/* ===== PRODUCT LIST ===== */
 .product-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     padding: 20px;
-    max-width: 1200px;   
-    margin: 0 auto;       
+    max-width: 1200px;
+    margin: 0 auto;
 }
+
+/* ===== PRODUCT CARD — nút Xem ngang hàng ===== */
+.product-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    max-width: 280px;
+    margin: 0 auto;
+
+    /* KEY FIX: flex column để đẩy nút xuống đáy */
+    display: flex;
+    flex-direction: column;
+}
+
+.product-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.product-info {
+    padding: 10px;
+
+    /* KEY FIX: flex column, chiếm hết chiều cao còn lại */
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.product-name {
+    margin: 0 0 6px;
+    font-size: 0.9em;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.product-price {
+    margin: 0 0 8px;
+    font-size: 0.95em;
+    color: #333;
+}
+
+.product-info .btn {
+    display: inline-block;
+    /* KEY FIX: đẩy nút xuống đáy */
+    margin-top: auto;
+    align-self: flex-start;
+    padding: 6px 14px;
+    background: #1a1a1a;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.85em;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    transition: background 0.2s;
+}
+
+.product-info .btn:hover {
+    background: #444;
+}
+
 /* ===== INFO BAR ===== */
 .info-bar {
     display: flex;
@@ -550,19 +584,30 @@ footer {
     line-height: 1.5;
 }
 
-/* Responsive */
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .product-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 @media (max-width: 900px) {
     .category-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-
     .info-bar {
         gap: 24px;
+    }
+    .product-list {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 480px) {
     .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .product-list {
         grid-template-columns: repeat(2, 1fr);
     }
 }
