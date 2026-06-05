@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <title>Outdoor Yoga – CampZone</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style0.css">
+    <style>
+        :root {
+            --sage: #7a9e7e;
+            --sage-light: #c8deca;
+            --earth: #5c4a32;
+            --cream: #f5f0e8;
+            --dark: #1a1a1a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family:'Segoe UI', Tahoma, sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+        }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            background: #2d4a35;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('../assets/yoga.png') center/cover no-repeat;
+            opacity: 0.55;
+            transform: scale(1.05);
+            animation: slowZoom 12s ease-out forwards;
+        }
+
+        @keyframes slowZoom {
+            from { transform: scale(1.05); }
+            to   { transform: scale(1.0); }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(26,26,26,0.85) 0%, rgba(26,26,26,0.1) 60%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 4rem 6rem;
+            max-width: 800px;
+            animation: fadeUp 0.9s ease both;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--sage-light);
+            border: 1px solid var(--sage);
+            padding: 0.35rem 1rem;
+            border-radius: 2px;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.0;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title em {
+            font-style: italic;
+            color: var(--sage-light);
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+
+        /* BACK BTN */
+        .back-btn {
+            position: fixed;
+            top: 1.5rem;
+            left: 1.5rem;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: #fff;
+            text-decoration: none;
+            padding: 0.55rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-family: 'Lato', sans-serif;
+            letter-spacing: 0.05em;
+            transition: background 0.3s;
+        }
+        .back-btn:hover { background: rgba(255,255,255,0.25); }
+
+        /* CONTENT */
+        .content-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+
+        .intro-number {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-size: 8rem;
+            font-weight: 700;
+            color: var(--sage-light);
+            line-height: 1;
+            margin-bottom: -1.5rem;
+        }
+
+        .intro-heading {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-size: 2.5rem;
+            color: var(--earth);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .intro-text {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #555;
+            font-weight: 300;
+        }
+
+        .intro-image {
+            position: relative;
+        }
+
+        .intro-image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 4px;
+            display: block;
+        }
+
+        .intro-image::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: 15px;
+            bottom: 15px;
+            border: 2px solid var(--sage);
+            border-radius: 4px;
+            z-index: -1;
+        }
+
+        /* FEATURES */
+        .features {
+            background: #fff;
+            border-radius: 8px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+        }
+
+        .features-title {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-size: 1.8rem;
+            color: var(--earth);
+            margin-bottom: 2.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--sage-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 1.5rem 1rem;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--sage-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.4rem;
+            color: var(--sage);
+        }
+
+        .feature-item h4 {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-size: 1.1rem;
+            color: var(--earth);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: #777;
+            line-height: 1.7;
+        }
+
+        /* SCHEDULE */
+        .schedule-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            background: var(--sage-light);
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 4rem;
+        }
+
+        .schedule-item {
+            background: #fff;
+            display: grid;
+            grid-template-columns: 120px 1fr auto;
+            align-items: center;
+            padding: 1.3rem 2rem;
+            gap: 2rem;
+            transition: background 0.2s;
+        }
+        .schedule-item:hover { background: var(--cream); }
+
+        .schedule-time {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-size: 1.3rem;
+            color: var(--sage);
+            font-weight: 700;
+        }
+
+        .schedule-name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.2rem;
+        }
+
+        .schedule-desc {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .schedule-badge {
+            background: var(--sage-light);
+            color: var(--sage);
+            font-size: 0.75rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--earth);
+            border-radius: 8px;
+            color: #fff;
+        }
+
+        .cta-section h2 {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-weight: 300;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--sage);
+            color: #fff;
+            padding: 1rem 3rem;
+            border-radius: 3px;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .cta-btn:hover { background: var(--sage-light); color: var(--earth); transform: translateY(-2px); }
+
+        @media (max-width: 768px) {
+            .hero-content { padding: 3rem 1.5rem; }
+            .intro-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .features-grid { grid-template-columns: 1fr 1fr; }
+            .schedule-item { grid-template-columns: 80px 1fr; }
+            .schedule-badge { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <a class="back-btn" href="../index.html">
+        <i class="fa-solid fa-arrow-left"></i> Trang chủ
+    </a>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-tag">01 / Unwind · CampZone</span>
+            <h1 class="hero-title">Outdoor<br><em>Yoga</em></h1>
+            <p class="hero-subtitle">Thư giãn cơ thể và tâm trí giữa lòng thiên nhiên</p>
+        </div>
+    </section>
+
+    <div class="content-wrap">
+
+        <div class="intro-grid">
+            <div>
+                <div class="intro-number">01</div>
+                <h2 class="intro-heading">Yoga giữa<br>thiên nhiên xanh</h2>
+                <p class="intro-text">
+                    Thoát khỏi nhịp sống đô thị hối hả, hãy để cơ thể và tâm trí bạn được nghỉ ngơi thực sự giữa không gian thiên nhiên trong lành. Các buổi yoga ngoài trời tại CampZone được thiết kế để kết nối bạn với đất trời, cân bằng năng lượng và tìm lại sự bình yên sâu thẳm bên trong.
+                    <br><br>
+                    Dù bạn là người mới bắt đầu hay đã có kinh nghiệm, mỗi buổi tập đều phù hợp với mọi cấp độ, được hướng dẫn bởi các chuyên gia giàu kinh nghiệm trong môi trường tự nhiên tuyệt đẹp.
+                </p>
+            </div>
+            <div class="intro-image">
+                <img src="../assets/yoga.png" alt="Outdoor Yoga">
+            </div>
+        </div>
+
+        <div class="features">
+            <h3 class="features-title">Điều bạn sẽ nhận được</h3>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fa-solid fa-leaf"></i></div>
+                    <h4>Không khí trong lành</h4>
+                    <p>Hít thở không khí rừng núi nguyên sơ, tốt cho cơ thể và tinh thần</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h4>Cân bằng cơ thể</h4>
+                    <p>Tăng cường sức khỏe, cải thiện tư thế và sự linh hoạt tự nhiên</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fa-solid fa-users"></i></div>
+                    <h4>Cộng đồng ấm áp</h4>
+                    <p>Kết nối với những người cùng đam mê sức khỏe và thiên nhiên</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.8rem; color:var(--earth); margin-bottom:1.5rem;">Lịch hoạt động</h3>
+        <div class="schedule-list">
+            <div class="schedule-item">
+                <div class="schedule-time">06:00</div>
+                <div>
+                    <div class="schedule-name">Buổi sáng sớm – Sunrise Yoga</div>
+                    <div class="schedule-desc">Chào đón ngày mới cùng ánh bình minh, tư thế nhẹ nhàng và hít thở sâu</div>
+                </div>
+                <span class="schedule-badge">60 phút</span>
+            </div>
+            <div class="schedule-item">
+                <div class="schedule-time">09:00</div>
+                <div>
+                    <div class="schedule-name">Yoga Flow – Trung cấp</div>
+                    <div class="schedule-desc">Chuỗi tư thế liên tiếp nhịp nhàng, kết hợp hơi thở và chuyển động</div>
+                </div>
+                <span class="schedule-badge">75 phút</span>
+            </div>
+            <div class="schedule-item">
+                <div class="schedule-time">17:00</div>
+                <div>
+                    <div class="schedule-name">Yin Yoga – Thư giãn chiều tà</div>
+                    <div class="schedule-desc">Giữ tư thế lâu, thả lỏng sâu trong ánh hoàng hôn núi rừng</div>
+                </div>
+                <span class="schedule-badge">60 phút</span>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Sẵn sàng trải nghiệm?</h2>
+            <p>Đặt chỗ ngay hôm nay và bắt đầu hành trình yêu thương bản thân</p>
+            <a href="../index.html" class="cta-btn">Đăng ký ngay</a>
+        </div>
+
+    </div>
+
+    <footer class="footer-lienhe" style="margin-top:0;">
+        <div class="footer-title">Liên hệ với tôi</div>
+        <ul class="icon-row">
+            <li style="--clr0:#ff0050;"><div class="icon-wrap"><a class="Lienhe" href="https://www.instagram.com/tlam2_2" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><span class="icon-label">Instagram</span></div></li>
+            <li style="--clr0:#1877f2;"><div class="icon-wrap"><a class="Lienhe" href="https://www.facebook.com/share/18mriTccBo/" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><span class="icon-label">Facebook</span></div></li>
+        </ul>
+        <p class="footer-copy">@2026 CampZone và logo CampZone là thương hiệu của TLam</p>
+    </footer>
+
+</body>
+</html>

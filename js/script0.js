@@ -31,3 +31,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
     startAuto();
 });
+// ── MODAL AUTH ──
+(function () {
+    const overlay   = document.getElementById('modal-overlay');
+    const mLogin    = document.getElementById('modal-login');
+    const mRegister = document.getElementById('modal-register');
+
+    function show(modal) {
+        overlay.style.display = 'block';
+        modal.style.display   = 'block';
+        requestAnimationFrame(() => requestAnimationFrame(() => modal.classList.add('active')));
+        document.body.style.overflow = 'hidden';
+    }
+
+    function hideAll() {
+        [mLogin, mRegister].forEach(m => {
+            m.classList.remove('active');
+            setTimeout(() => m.style.display = 'none', 300);
+        });
+        overlay.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    document.getElementById('btn-login')
+        .addEventListener('click', e => { e.preventDefault(); show(mLogin); });
+    document.getElementById('btn-register')
+        .addEventListener('click', e => { e.preventDefault(); show(mRegister); });
+    document.getElementById('close-login')
+        .addEventListener('click', hideAll);
+    document.getElementById('close-register')
+        .addEventListener('click', hideAll);
+    overlay.addEventListener('click', hideAll);
+
+    document.getElementById('goto-register').addEventListener('click', e => {
+        e.preventDefault(); hideAll();
+        setTimeout(() => show(mRegister), 320);
+    });
+    document.getElementById('goto-login').addEventListener('click', e => {
+        e.preventDefault(); hideAll();
+        setTimeout(() => show(mLogin), 320);
+    });
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') hideAll();
+    });
+})();

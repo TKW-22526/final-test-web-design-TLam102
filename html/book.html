@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <title>Book Club – CampZone</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style0.css">
+    <style>
+        :root {
+            --amber: #c8843a;
+            --amber-light: #f0d4a8;
+            --ink: #2b2016;
+            --paper: #faf6ee;
+            --warm-grey: #9a8f82;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            background: #3a2e1a;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('../assets/docsach.png') center/cover no-repeat;
+            opacity: 0.5;
+            animation: slowZoom 12s ease-out forwards;
+        }
+
+        @keyframes slowZoom {
+            from { transform: scale(1.06); }
+            to   { transform: scale(1.0); }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(43,32,22,0.9) 0%, rgba(43,32,22,0.1) 55%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 4rem 6rem;
+            max-width: 750px;
+            animation: fadeUp 0.9s ease both;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--amber-light);
+            border: 1px solid var(--amber);
+            padding: 0.35rem 1rem;
+            border-radius: 2px;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 600;
+            color: #fff;
+            line-height: 1.0;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title em { font-style: italic; color: var(--amber-light); }
+        .hero-subtitle { font-size: 1.1rem; color: rgba(255,255,255,0.65); font-weight: 300; }
+
+        .back-btn {
+            position: fixed;
+            top: 1.5rem; left: 1.5rem;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: #fff;
+            text-decoration: none;
+            padding: 0.55rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-family: 'Nunito', sans-serif;
+            letter-spacing: 0.05em;
+            transition: background 0.3s;
+        }
+        .back-btn:hover { background: rgba(255,255,255,0.25); }
+
+        .content-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+
+        .intro-number {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-size: 8rem;
+            font-weight: 600;
+            color: var(--amber-light);
+            line-height: 1;
+            margin-bottom: -1.5rem;
+        }
+
+        .intro-heading {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-size: 2.5rem;
+            color: var(--amber);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .intro-text {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #666;
+            font-weight: 300;
+        }
+
+        .intro-image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 4px;
+            display: block;
+            box-shadow: 12px 12px 0 var(--amber-light);
+        }
+
+        .books-section {
+            background: #fff;
+            border-radius: 8px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            border-left: 4px solid var(--amber);
+        }
+
+        .books-title {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            color: var(--ink);
+            margin-bottom: 2rem;
+        }
+
+        .book-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .book-item {
+            display: grid;
+            grid-template-columns: 50px 1fr;
+            gap: 1.5rem;
+            align-items: start;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed var(--amber-light);
+        }
+        .book-item:last-child { border-bottom: none; }
+
+        .book-num {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--amber);
+            line-height: 1;
+        }
+
+        .book-name {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 0.3rem;
+        }
+
+        .book-author { font-size: 0.85rem; color: var(--warm-grey); margin-bottom: 0.4rem; }
+        .book-desc { font-size: 0.9rem; color: #777; line-height: 1.6; }
+
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .info-card {
+            background: #fff;
+            border-radius: 6px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+        }
+
+        .info-card i {
+            font-size: 1.8rem;
+            color: var(--amber);
+            margin-bottom: 0.8rem;
+        }
+
+        .info-card h4 {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-size: 1.1rem;
+            color: var(--ink);
+            margin-bottom: 0.4rem;
+        }
+
+        .info-card p { font-size: 0.85rem; color: #888; line-height: 1.6; }
+
+        .cta-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--ink);
+            border-radius: 8px;
+            color: #fff;
+        }
+
+        .cta-section h2 {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-weight: 300;
+            opacity: 0.7;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--amber);
+            color: #fff;
+            padding: 1rem 3rem;
+            border-radius: 3px;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .cta-btn:hover { background: var(--amber-light); color: var(--ink); transform: translateY(-2px); }
+
+        @media (max-width: 768px) {
+            .hero-content { padding: 3rem 1.5rem; }
+            .intro-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .info-cards { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <a class="back-btn" href="../index.html">
+        <i class="fa-solid fa-arrow-left"></i> Trang chủ
+    </a>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-tag">02 / Trevari · CampZone</span>
+            <h1 class="hero-title">Book<br><em>Club</em></h1>
+            <p class="hero-subtitle">Chia sẻ tri thức và kết nối tâm hồn giữa rừng xanh</p>
+        </div>
+    </section>
+
+    <div class="content-wrap">
+
+        <div class="intro-grid">
+            <div>
+                <div class="intro-number">02</div>
+                <h2 class="intro-heading">Đọc sách giữa<br>núi rừng yên tĩnh</h2>
+                <p class="intro-text">
+                    Không có nơi nào phù hợp để đọc sách hơn là giữa thiên nhiên – nơi mà tiếng chim hót và gió thổi qua tán lá trở thành bản nhạc nền hoàn hảo. Book Club của CampZone là không gian để bạn không chỉ đọc, mà còn lắng nghe và chia sẻ.
+                    <br><br>
+                    Mỗi buổi họp câu lạc bộ, chúng tôi chọn một cuốn sách, thảo luận cởi mở và cùng nhau khám phá những góc nhìn mới về cuộc sống, thiên nhiên và con người.
+                </p>
+            </div>
+            <div class="intro-image">
+                <img src="../assets/docsach.png" alt="Book Club">
+            </div>
+        </div>
+
+        <div class="books-section">
+            <h3 class="books-title">📚 Sách đang đọc tháng này</h3>
+            <div class="book-list">
+                <div class="book-item">
+                    <div class="book-num">01</div>
+                    <div>
+                        <div class="book-name">Walden – Sống Trong Rừng</div>
+                        <div class="book-author">Henry David Thoreau</div>
+                        <div class="book-desc">Hành trình sống đơn giản, gần gũi thiên nhiên và suy ngẫm về ý nghĩa cuộc đời của một triết gia người Mỹ</div>
+                    </div>
+                </div>
+                <div class="book-item">
+                    <div class="book-num">02</div>
+                    <div>
+                        <div class="book-name">Khi Hơi Thở Hóa Thinh Không</div>
+                        <div class="book-author">Paul Kalanithi</div>
+                        <div class="book-desc">Cuốn hồi ký sâu sắc về sự sống, cái chết và ý nghĩa của từng khoảnh khắc được sống trọn vẹn</div>
+                    </div>
+                </div>
+                <div class="book-item">
+                    <div class="book-num">03</div>
+                    <div>
+                        <div class="book-name">Rừng Na Uy</div>
+                        <div class="book-author">Haruki Murakami</div>
+                        <div class="book-desc">Tiểu thuyết trữ tình về tuổi trẻ, tình yêu và nỗi cô đơn trong bức tranh thiên nhiên Nhật Bản</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-cards">
+            <div class="info-card">
+                <i class="fa-solid fa-calendar-days"></i>
+                <h4>Lịch họp</h4>
+                <p>Mỗi cuối tuần, thứ Bảy và Chủ Nhật, từ 8:00 – 11:00 sáng</p>
+            </div>
+            <div class="info-card">
+                <i class="fa-solid fa-person-walking"></i>
+                <h4>Số lượng</h4>
+                <p>Tối đa 15 thành viên mỗi buổi để đảm bảo không gian thân mật</p>
+            </div>
+            <div class="info-card">
+                <i class="fa-solid fa-mug-hot"></i>
+                <h4>Bao gồm</h4>
+                <p>Trà và cà phê miễn phí, sách được chuẩn bị sẵn cho thành viên mới</p>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Tham gia cùng chúng tôi</h2>
+            <p>Mỗi trang sách là một chuyến phiêu lưu mới</p>
+            <a href="../index.html" class="cta-btn">Đăng ký ngay</a>
+        </div>
+
+    </div>
+
+    <footer class="footer-lienhe" style="margin-top:0;">
+        <div class="footer-title">Liên hệ với tôi</div>
+        <ul class="icon-row">
+            <li style="--clr0:#ff0050;"><div class="icon-wrap"><a class="Lienhe" href="https://www.instagram.com/tlam2_2" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><span class="icon-label">Instagram</span></div></li>
+            <li style="--clr0:#1877f2;"><div class="icon-wrap"><a class="Lienhe" href="https://www.facebook.com/share/18mriTccBo/" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><span class="icon-label">Facebook</span></div></li>
+        </ul>
+        <p class="footer-copy">@2026 CampZone và logo CampZone là thương hiệu của TLam</p>
+    </footer>
+
+</body>
+</html>

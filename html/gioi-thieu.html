@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới Thiệu – CampZone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Barlow:wght@300;400;600&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style2.css">
+    <script src="../js/script0.js" defer></script>
+</head>
+<body>
+
+    <!-- NAV -->
+   <nav class="navbar">
+        <img src="../assets/logo2.png" alt="Logo">
+        <a class="navlink" href="../index.html">Trang chủ</a>
+        <a class="navlink" href="../html/gioi-thieu.html">Giới Thiệu</a>
+        <a class="navlink" href="../html/san-phamleu.html">Lều</a>
+        <a class="navlink" href="../html/san-phamthietbi.html">Trang thiết bị</a>
+        <a class="navlink" href="../html/lien-he.html">Liên hệ</a>
+        <a class="navlink navlink-auth" href="#" id="btn-login">
+        <i class="fa-regular fa-user"></i> Đăng nhập</a>
+        <a class="navlink navlink-auth" href="#" id="btn-register">
+        <i class="fa-regular fa-user"></i> Đăng ký</a>
+
+    </nav>
+    <!-- MODAL OVERLAY -->
+    <div id="modal-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.45); z-index:999; align-items:center; justify-content:center;"></div>
+
+        <!-- OVERLAY -->
+    <div id="modal-overlay"></div>
+
+    <!-- MODAL ĐĂNG NHẬP -->
+    <div id="modal-login" class="modal-box">
+        <button class="modal-close" id="close-login"><i class="fa-solid fa-xmark"></i></button>
+        <div class="modal-logo">
+            <img src="./assets/logo2.png" alt="CampZone Logo">
+        </div>
+        <h2 class="modal-title">Đăng nhập</h2>
+        <div class="modal-field">
+            <label>EMAIL</label>
+            <input type="email" placeholder="email@example.com">
+        </div>
+        <div class="modal-field">
+            <label>MẬT KHẨU</label>
+            <input type="password" placeholder="••••••••">
+        </div>
+        <button class="modal-submit">Đăng nhập</button>
+        <p class="modal-switch">Chưa có tài khoản? <a href="#" id="goto-register">Đăng ký ngay</a></p>
+    </div>
+
+    <!-- MODAL ĐĂNG KÝ -->
+    <div id="modal-register" class="modal-box">
+        <button class="modal-close" id="close-register"><i class="fa-solid fa-xmark"></i></button>
+        <div class="modal-logo">
+            <img src="./assets/logo2.png" alt="CampZone Logo">
+        </div>
+        <h2 class="modal-title">Đăng ký</h2>
+        <div class="modal-field">
+            <label>HỌ TÊN</label>
+            <input type="text" placeholder="Nguyễn Văn A">
+        </div>
+        <div class="modal-field">
+            <label>EMAIL</label>
+            <input type="email" placeholder="email@example.com">
+        </div>
+        <div class="modal-field">
+            <label>MẬT KHẨU</label>
+            <input type="password" placeholder="••••••••">
+        </div>
+        <button class="modal-submit">Tạo tài khoản</button>
+        <p class="modal-switch">Đã có tài khoản? <a href="#" id="goto-login">Đăng nhập</a></p>
+    </div>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">CampZone -Thành lập 2026 - Việt Nam</div>
+            <h1>
+                Khơi nguồn<br>hành trình
+                <em>hoang dã</em>
+            </h1>
+            <p class="hero-desc">Chúng tôi mang đến thiết bị cắm trại chất lượng cao, giúp bạn chinh phục mọi địa hình và trải nghiệm thiên nhiên trọn vẹn nhất.</p>
+        </div>
+        
+    </section>
+
+    <!-- INTRO -->
+    <section class="intro">
+        <div class="intro-image reveal">
+            <img src="https://images.unsplash.com/photo-1537905569824-f89f14cceb68?w=700&q=80" alt="CampZone sản phẩm">
+            
+        </div>
+        <div class="intro-body reveal">
+            <h2 class="section-title">CampZone là ai?</h2>
+            <p>CampZone là nền tảng thương mại điện tử chuyên biệt trong lĩnh vực trang bị ngoài trời tại Việt Nam. Chúng tôi tin rằng mỗi chuyến đi cắm trại đều có thể trở nên an toàn, tiện nghi và đầy cảm xúc — nếu bạn có đúng trang bị.</p>
+            <p>Từ lều trại cao cấp, túi ngủ chống rét, đến bếp dã ngoại và phụ kiện sinh tồn — mỗi sản phẩm được tuyển chọn kỹ lưỡng bởi đội ngũ có kinh nghiệm thực chiến, đảm bảo đồng hành cùng bạn qua mọi thách thức của thiên nhiên.</p>
+            <p>Chúng tôi không chỉ bán hàng — chúng tôi xây dựng một cộng đồng những người yêu thích khám phá, kết nối con người với thiên nhiên và với nhau.</p>
+        </div>
+    </section>
+
+    <!-- MISSION STRIP -->
+    <div class="mission-strip reveal">
+        <div class="big-quote">"Mang đến những sản phẩm đốt trại chất lượng với giá cả hợp lý, giúp mọi người dễ dàng tiếp cận các hoạt động dã ngoại."</div>
+        <div class="mission-text">
+            <strong>Sứ mệnh của chúng tôi</strong>
+            Chúng tôi tin rằng thiên nhiên không phải là đặc quyền của người giàu hay dân chuyên nghiệp. CampZone ra đời để xóa bỏ rào cản đó — mang thiết bị đáng tin cậy đến tay mọi người yêu thích trải nghiệm ngoài trời, với mức giá thực sự hợp lý.
+        </div>
+    </div>
+
+    <!-- VALUES -->
+    <section class="values">
+        <div class="values-header reveal">
+            <div>
+                
+                <h2 class="section-title">Điều chúng tôi cam kết</h2>
+            </div>
+        </div>
+        <div class="values-grid">
+            <div class="value-card reveal">
+                <div class="v-num">01</div>
+                <div class="v-icon"><i class="fa-solid fa-medal"></i></div>
+                <div class="v-title">Chất lượng</div>
+                <div class="v-desc">Lựa chọn từ những thương hiệu uy tín toàn cầu, kiểm tra kỹ lưỡng trước khi đến tay khách hàng.</div>
+            </div>
+            <div class="value-card reveal">
+                <div class="v-num">02</div>
+                <div class="v-icon"><i class="fa-solid fa-handshake"></i></div>
+                <div class="v-title">Uy tín</div>
+                <div class="v-desc">Thông tin minh bạch, chính xác và dịch vụ tận tâm từ tư vấn đến sau bán hàng.</div>
+            </div>
+            <div class="value-card reveal">
+                <div class="v-num">03</div>
+                <div class="v-icon"><i class="fa-solid fa-star"></i></div>
+                <div class="v-title">Trải nghiệm</div>
+                <div class="v-desc">Luôn đặt sự hài lòng của khách hàng lên hàng đầu, từng chi tiết nhỏ trong hành trình mua sắm.</div>
+            </div>
+            <div class="value-card reveal">
+                <div class="v-num">04</div>
+                <div class="v-icon"><i class="fa-solid fa-compass"></i></div>
+                <div class="v-title">Đam mê</div>
+                <div class="v-desc">Khuyến khích tinh thần trải nghiệm, khám phá và chinh phục thiên nhiên trong mỗi thành viên cộng đồng.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISION -->
+    <div class="vision">
+        <div class="vision-left reveal">
+        
+            <h2 class="section-title">Thương hiệu <em>hàng đầu</em> Việt Nam</h2>
+        </div>
+        <div class="vision-right">
+            <p>Trở thành thương hiệu hàng đầu trong lĩnh vực cung cấp thiết bị cắm trại tại Việt Nam, đồng hành cùng cộng đồng yêu thích du lịch, leo núi và cắm trại trên khắp cả nước.</p>
+            <p>Chúng tôi hướng đến việc xây dựng hệ sinh thái outdoor hoàn chỉnh — từ sản phẩm, kiến thức đến kết nối cộng đồng — để mỗi người Việt đều có thể tự tin bước vào thiên nhiên.</p>
+            <a href="../index.html" class="cta-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+                Khám phá sản phẩm
+            </a>
+        </div>
+    </div>
+
+    
+
+      <footer class="footer-lienhe">
+        <div class="footer-title">Liên hệ với tôi</div>
+        <ul class="icon-row">
+            <li style="--clr0:#ff0050;">
+                <div class="icon-wrap">
+                    <a class="Lienhe" href="https://www.instagram.com/tlam2_2?igsh=bXBlenNvM292Zm11" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <span class="icon-label">Instagram</span>
+                </div>
+            </li>
+            <li style="--clr0:#1877f2;">
+                <div class="icon-wrap">
+                    <a class="Lienhe" href="https://www.facebook.com/share/18mriTccBo/" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <span class="icon-label">Facebook</span>
+                </div>
+            </li>
+            <li style="--clr0:#ff0000;">
+                <div class="icon-wrap">
+                    <a class="Lienhe" href="https://www.youtube.com/@Iris102-vn" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                    <span class="icon-label">YouTube</span>
+                </div>
+            </li>
+            <li style="--clr0:#010101;">
+                <div class="icon-wrap">
+                    <a class="Lienhe" href="https://www.tiktok.com/@tlamm87?_r=1&_t=ZS-96axMhUuiZh" aria-label="TikTok">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                    <span class="icon-label">TikTok</span>
+                </div>
+            </li>
+        </ul>
+        <p class="footer-copy">@2026 CampZone và logo CampZone là thương hiệu của TLam</p>
+    </footer>
+
+    <script>
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        reveals.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

@@ -14,12 +14,63 @@
     <nav class="navbar">
         <img src="./assets/logo2.png" alt="Logo">
         <a class="navlink" href="index.html">Trang chủ</a>
+        <a class="navlink" href="./html/gioi-thieu.html">Giới Thiệu</a>
         <a class="navlink" href="./html/san-phamleu.html">Lều</a>
         <a class="navlink" href="./html/san-phamthietbi.html">Trang thiết bị</a>
-        <a class="navlink" href="./html/page3.html">Đăng nhập</a>
-        <a class="navlink" href="./html/page4.html">Đăng ký</a>
-    </nav>
+        <a class="navlink" href="./html/lien-he.html">Liên hệ</a>
+        <a class="navlink navlink-auth" href="#" id="btn-login">
+        <i class="fa-regular fa-user"></i> Đăng nhập</a>
+        <a class="navlink navlink-auth" href="#" id="btn-register">
+        <i class="fa-regular fa-user"></i> Đăng ký</a>
 
+    </nav>
+    <!-- MODAL OVERLAY -->
+    <div id="modal-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.45); z-index:999; align-items:center; justify-content:center;"></div>
+
+        <!-- OVERLAY -->
+    <div id="modal-overlay"></div>
+
+    <!-- MODAL ĐĂNG NHẬP -->
+    <div id="modal-login" class="modal-box">
+        <button class="modal-close" id="close-login"><i class="fa-solid fa-xmark"></i></button>
+        <div class="modal-logo">
+            <img src="./assets/logo2.png" alt="CampZone Logo">
+        </div>
+        <h2 class="modal-title">Đăng nhập</h2>
+        <div class="modal-field">
+            <label>EMAIL</label>
+            <input type="email" placeholder="email@example.com">
+        </div>
+        <div class="modal-field">
+            <label>MẬT KHẨU</label>
+            <input type="password" placeholder="••••••••">
+        </div>
+        <button class="modal-submit">Đăng nhập</button>
+        <p class="modal-switch">Chưa có tài khoản? <a href="#" id="goto-register">Đăng ký ngay</a></p>
+    </div>
+
+    <!-- MODAL ĐĂNG KÝ -->
+    <div id="modal-register" class="modal-box">
+        <button class="modal-close" id="close-register"><i class="fa-solid fa-xmark"></i></button>
+        <div class="modal-logo">
+            <img src="./assets/logo2.png" alt="CampZone Logo">
+        </div>
+        <h2 class="modal-title">Đăng ký</h2>
+        <div class="modal-field">
+            <label>HỌ TÊN</label>
+            <input type="text" placeholder="Nguyễn Văn A">
+        </div>
+        <div class="modal-field">
+            <label>EMAIL</label>
+            <input type="email" placeholder="email@example.com">
+        </div>
+        <div class="modal-field">
+            <label>MẬT KHẨU</label>
+            <input type="password" placeholder="••••••••">
+        </div>
+        <button class="modal-submit">Tạo tài khoản</button>
+        <p class="modal-switch">Đã có tài khoản? <a href="#" id="goto-login">Đăng nhập</a></p>
+    </div>
     <main class="main">
 
         <!-- BANNER -->
@@ -119,7 +170,9 @@
                         <span class="activity-tag">01 / Unwind</span>
                         <h3 class="activity-title">Outdoor<br>Yoga</h3>
                         <p class="activity-desc">Trải nghiệm yoga giữa thiên nhiên, thư giãn cơ thể và tâm trí cùng CampZone</p>
-                        <button class="activity-btn">Khám Phá</button>
+                        <a href="./html/yoga.html">
+                            <button class="activity-btn">Khám Phá</button>
+                        </a>
                     </div>
                 </div>
 
@@ -130,7 +183,9 @@
                         <span class="activity-tag">02 / Trevari</span>
                         <h3 class="activity-title">Book<br>Club</h3>
                         <p class="activity-desc">Đọc sách và chia sẻ cùng cộng đồng giữa không gian xanh mát của núi rừng</p>
-                        <button class="activity-btn">Khám Phá</button>
+                        <a href="./html/book.html">
+                            <button class="activity-btn">Khám Phá</button>
+                        </a>
                     </div>
                 </div>
 
@@ -141,7 +196,9 @@
                         <span class="activity-tag">03 / Dambi</span>
                         <h3 class="activity-title">Tea &<br>Sound Ritual</h3>
                         <p class="activity-desc">Kết hợp trà đạo và âm thanh thiền định, đánh thức các giác quan giữa tự nhiên</p>
-                        <button class="activity-btn">Khám Phá</button>
+                        <a href="./html/tea.html">
+                            <button class="activity-btn">Khám Phá</button>
+                        </a>
                     </div>
                 </div>
 
@@ -152,7 +209,9 @@
                         <span class="activity-tag">04 / Tangbadasan</span>
                         <h3 class="activity-title">Trail<br>Running</h3>
                         <p class="activity-desc">Chạy bộ địa hình cùng cộng đồng outdoor, chinh phục những cung đường rừng núi</p>
-                        <button class="activity-btn">Khám Phá</button>
+                        <a href="./html/trail.html">
+                            <button class="activity-btn">Khám Phá</button>
+                        </a>
                     </div>
                 </div>
 

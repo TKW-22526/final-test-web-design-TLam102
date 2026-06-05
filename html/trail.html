@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <title>Trail Running – CampZone</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style0.css">
+    <style>
+        :root {
+            --orange: #e05a1a;
+            --orange-light: #f5c09a;
+            --forest: #1e3323;
+            --charcoal: #1a1a1a;
+            --light: #f4f1ec;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--light);
+            color: var(--charcoal);
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: var(--forest);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('../assets/chaybo.png') center/cover no-repeat;
+            opacity: 0.5;
+            animation: slowZoom 10s ease-out forwards;
+        }
+
+        @keyframes slowZoom {
+            from { transform: scale(1.1); }
+            to   { transform: scale(1.0); }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(110deg, rgba(26,26,26,0.9) 40%, rgba(26,26,26,0.2) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 8rem;
+            animation: slideIn 0.8s ease both;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-50px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+
+        .hero-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--orange-light);
+            border-left: 3px solid var(--orange);
+            padding: 0.2rem 0.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(5rem, 12vw, 10rem);
+            color: #fff;
+            line-height: 0.9;
+            letter-spacing: 0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title span { color: var(--orange); }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.6);
+            font-weight: 300;
+            max-width: 450px;
+            line-height: 1.7;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 2.5rem;
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-num {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-size: 2.5rem;
+            color: var(--orange);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 1.5rem; left: 1.5rem;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            text-decoration: none;
+            padding: 0.55rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-family: 'DM Sans', sans-serif;
+            transition: background 0.3s;
+        }
+        .back-btn:hover { background: rgba(224,90,26,0.6); }
+
+        .content-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-label {
+            font-size: 0.72rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--orange);
+            border-left: 3px solid var(--orange);
+            padding-left: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-size: 3rem;
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.03em;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+
+        .intro-text {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #666;
+            font-weight: 300;
+        }
+
+        .intro-image {
+            position: relative;
+        }
+
+        .intro-image img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            display: block;
+            clip-path: polygon(0 0, 100% 0, 100% 88%, 88% 100%, 0 100%);
+        }
+
+        .intro-image .badge {
+            position: absolute;
+            bottom: 40px;
+            left: -20px;
+            background: var(--orange);
+            color: #fff;
+            padding: 1rem 1.5rem;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-size: 1.8rem;
+            line-height: 1;
+            letter-spacing: 0.05em;
+        }
+
+        .trails-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 5rem;
+        }
+
+        .trail-card {
+            background: #fff;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .trail-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+
+        .trail-card-header {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .trail-difficulty {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.7rem;
+            border-radius: 2px;
+        }
+
+        .easy { background: #d4edda; color: #27683b; }
+        .medium { background: #fff3cd; color: #856404; }
+        .hard { background: #f8d7da; color: #842029; }
+
+        .trail-distance {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-size: 1.8rem;
+            color: var(--orange);
+        }
+
+        .trail-card-body {
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        .trail-name {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-size: 1.4rem;
+            color: var(--charcoal);
+            letter-spacing: 0.03em;
+            margin-bottom: 0.5rem;
+        }
+
+        .trail-desc {
+            font-size: 0.85rem;
+            color: #888;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .trail-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.78rem;
+            color: #aaa;
+        }
+
+        .trail-meta i { color: var(--orange); margin-right: 0.3rem; }
+
+        .gear-section {
+            background: var(--charcoal);
+            color: #fff;
+            border-radius: 6px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .gear-section .section-title { color: #fff; }
+
+        .gear-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gear-item {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+        .gear-item:hover { border-color: var(--orange); }
+
+        .gear-item i {
+            font-size: 1.5rem;
+            color: var(--orange);
+            margin-bottom: 0.8rem;
+        }
+
+        .gear-item span {
+            display: block;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .cta-section {
+            background: var(--orange);
+            border-radius: 6px;
+            padding: 4rem;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .cta-section h2 {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-size: 2.8rem;
+            color: #fff;
+            letter-spacing: 0.05em;
+            line-height: 1;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.75);
+            font-weight: 300;
+            margin-top: 0.5rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: #fff;
+            color: var(--orange);
+            padding: 1rem 2.5rem;
+            border-radius: 3px;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+
+        @media (max-width: 768px) {
+            .hero-content { padding: 0 1.5rem; }
+            .intro-grid { grid-template-columns: 1fr; }
+            .trails-grid { grid-template-columns: 1fr; }
+            .gear-grid { grid-template-columns: repeat(2, 1fr); }
+            .cta-section { grid-template-columns: 1fr; }
+            .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+
+    <a class="back-btn" href="../index.html">
+        <i class="fa-solid fa-arrow-left"></i> Trang chủ
+    </a>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-tag">04 / Tangbadasan · CampZone</div>
+            <h1 class="hero-title">TRAIL<br><span>RUNNING</span></h1>
+            <p class="hero-subtitle">Chạy bộ địa hình – chinh phục cung đường rừng núi hùng vĩ cùng cộng đồng outdoor</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-num">15+</div>
+                    <div class="stat-label">Cung đường</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">200+</div>
+                    <div class="stat-label">Runner</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">3</div>
+                    <div class="stat-label">Cấp độ</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="content-wrap">
+
+        <div class="intro-grid">
+            <div>
+                <div class="section-label">Về Trail Running</div>
+                <h2 class="section-title">Không chỉ là<br>chạy bộ</h2>
+                <p class="intro-text">
+                    Trail Running không phải là chạy bộ thông thường – đây là hành trình chinh phục những con đường rừng, vượt qua địa hình thử thách, và kết nối sâu sắc với thiên nhiên xung quanh bạn.
+                    <br><br>
+                    Tại CampZone, chúng tôi tổ chức các buổi chạy định kỳ trên nhiều cung đường với độ khó khác nhau, phù hợp cho cả người mới bắt đầu và runner có kinh nghiệm. Mỗi buổi là một kỷ niệm không thể nào quên.
+                </p>
+            </div>
+            <div class="intro-image">
+                <img src="../assets/chaybo.png" alt="Trail Running">
+                <div class="badge">RUN<br>WILD</div>
+            </div>
+        </div>
+
+        <div class="gear-section">
+            <div class="section-label" style="border-color:var(--orange);">Trang bị cần thiết</div>
+            <h2 class="section-title">Checklist trước khi chạy</h2>
+            <div class="gear-grid">
+                <div class="gear-item">
+                    <i class="fa-solid fa-shoe-prints"></i>
+                    <span>Giày trail chuyên dụng</span>
+                </div>
+                <div class="gear-item">
+                    <i class="fa-solid fa-bottle-water"></i>
+                    <span>Bình nước 1.5L+</span>
+                </div>
+                <div class="gear-item">
+                    <i class="fa-solid fa-kit-medical"></i>
+                    <span>Túi sơ cứu nhỏ</span>
+                </div>
+                <div class="gear-item">
+                    <i class="fa-solid fa-mobile-screen"></i>
+                    <span>GPS hoặc điện thoại</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <div>
+                <h2>Sẵn sàng<br>chinh phục?</h2>
+                <p>Đăng ký buổi chạy tiếp theo cùng cộng đồng CampZone</p>
+            </div>
+            <a href="../index.html" class="cta-btn">Đăng ký ngay</a>
+        </div>
+
+    </div>
+
+    <footer class="footer-lienhe" style="margin-top:0;">
+        <div class="footer-title">Liên hệ với tôi</div>
+        <ul class="icon-row">
+            <li style="--clr0:#ff0050;"><div class="icon-wrap"><a class="Lienhe" href="https://www.instagram.com/tlam2_2" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><span class="icon-label">Instagram</span></div></li>
+            <li style="--clr0:#1877f2;"><div class="icon-wrap"><a class="Lienhe" href="https://www.facebook.com/share/18mriTccBo/" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><span class="icon-label">Facebook</span></div></li>
+        </ul>
+        <p class="footer-copy">@2026 CampZone và logo CampZone là thương hiệu của TLam</p>
+    </footer>
+
+</body>
+</html>
